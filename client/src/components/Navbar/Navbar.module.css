@@ -1,6 +1,11 @@
 .header {
   background-color: var(--color-neutral-300);
   padding: 1rem;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 
 .wrapper {
@@ -128,11 +133,11 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  height: 100dvh;
   left: -100%;
   padding: 2rem;
   position: absolute;
   top: 6.55rem;
-  bottom: 0;
   transition: 0.5s ease-in-out;
   width: 50%;
   z-index: 10;
@@ -189,7 +194,7 @@
 
 @media (max-width: 750px) {
   .header {
-    padding: 0.5rem;
+    padding: .5rem;
   }
 
   .wrapper {
@@ -267,6 +272,7 @@
 
   .dropdown {
     gap: 1rem;
+    height: auto;
     padding: 0.5rem 0 0 2rem;
     position: static;
     width: 100%;

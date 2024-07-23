@@ -46,6 +46,12 @@ body {
   min-height: 100vh;
 }
 
+.container {
+  padding-inline: 1rem;
+  max-width: 1450px;
+  margin-inline: auto;
+}
+
 .block-scroll {
     overflow: hidden;
 }
@@ -81,7 +87,7 @@ body {
     left: 0;
     position: absolute;
     top: 100%;
-    transition: .5s ease-in-out;
+    transition: .4s ease-in-out;
     width: 100%;
     z-index: -1;
 }
@@ -92,4 +98,10 @@ body {
 
 .btn--primary:hover::after {
     top: 0;
+}
+
+@media (max-width: 750px) {
+  .container {
+    padding-inline: .5rem;
+  }
 }

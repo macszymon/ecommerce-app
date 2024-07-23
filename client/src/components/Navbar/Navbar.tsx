@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
 
 import { LiaHeart, LiaSearchSolid, LiaShoppingBagSolid, LiaTimesSolid } from "react-icons/lia";
@@ -7,21 +7,39 @@ function Navbar() {
   const [isActive, setIsActive] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if(window.innerWidth >= 750) {
+        setIsActive(false);
+        document.body.classList.remove("block-scroll")
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const handleHamburgerClick = () => {
     setIsActive(!isActive);
-    document.body.classList.toggle("block-scroll");
+    isActive ? document.body.classList.remove("block-scroll") : document.body.classList.add("block-scroll");
+  };
+
+  const handleMouseEnter = () => {
+    if (window.innerWidth >= 750) {
+      document.body.classList.add("block-scroll");
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (window.innerWidth >= 750) {
+      document.body.classList.remove("block-scroll");
+    }
   };
 
   const handleSearchClick = () => {
     setIsActive(false);
     setIsSearch(!isSearch);
-  };
-
-  const handleMouseEnter = () => {
-    document.body.classList.add("block-scroll");
-  };
-
-  const handleMouseLeave = () => {
     document.body.classList.remove("block-scroll");
   };
 
@@ -63,7 +81,7 @@ function Navbar() {
             <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} href="" className={`${styles.link} ${styles.linkSale}`}>
               Sale
             </a>
-            <ul className={styles.dropdown}>
+            <ul onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.dropdown}>
               <li>
                 <a className={`${styles.dropdownLink} ${styles.dropdownLinkSale}`} href="">
                   Men
@@ -90,7 +108,7 @@ function Navbar() {
             <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} href="" className={styles.link}>
               Men
             </a>
-            <ul className={styles.dropdown}>
+            <ul onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.dropdown}>
               <li>
                 <a className={`${styles.dropdownLink} ${styles.dropdownLinkSale}`} href="">
                   Sale
@@ -122,7 +140,7 @@ function Navbar() {
             <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} href="" className={styles.link}>
               Women
             </a>
-            <ul className={styles.dropdown}>
+            <ul onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.dropdown}>
               <li>
                 <a className={`${styles.dropdownLink} ${styles.dropdownLinkSale}`} href="">
                   Sale
@@ -154,7 +172,7 @@ function Navbar() {
             <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} href="" className={styles.link}>
               Boy
             </a>
-            <ul className={styles.dropdown}>
+            <ul onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.dropdown}>
               <li>
                 <a className={`${styles.dropdownLink} ${styles.dropdownLinkSale}`} href="">
                   Sale
@@ -186,7 +204,7 @@ function Navbar() {
             <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} href="" className={styles.link}>
               Girl
             </a>
-            <ul className={styles.dropdown}>
+            <ul onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={styles.dropdown}>
               <li>
                 <a className={`${styles.dropdownLink} ${styles.dropdownLinkSale}`} href="">
                   Sale

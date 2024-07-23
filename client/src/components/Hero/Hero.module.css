@@ -6,6 +6,7 @@
   height: calc(100dvh - 6.0625rem);
   justify-content: center;
   position: relative;
+  margin-bottom: 5rem;
 }
 
 .header {
