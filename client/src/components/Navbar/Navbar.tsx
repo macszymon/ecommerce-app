@@ -17,6 +17,14 @@ function Navbar() {
     setIsSearch(!isSearch);
   };
 
+  const handleMouseEnter = () => {
+    document.body.classList.add("block-scroll");
+  };
+
+  const handleMouseLeave = () => {
+    document.body.classList.remove("block-scroll");
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.wrapper}>
@@ -36,21 +44,23 @@ function Navbar() {
           CLOTHES
         </a>
         <div className={styles.icons}>
-          <button className={`${styles.iconBtn} ${styles.searchIcon}`} onClick={handleSearchClick} >
+          <button className={`${styles.iconBtn} ${styles.searchIcon}`} onClick={handleSearchClick}>
             <LiaSearchSolid />
           </button>
           <a href="" className={styles.iconBtn}>
             <LiaHeart />
+            <span>Favorites</span>
           </a>
           <a href="" className={styles.iconBtn}>
             <LiaShoppingBagSolid />
+            <span>Cart</span>
           </a>
         </div>
       </div>
       <nav className={`${styles.nav} ${isActive ? styles.active : ""}`}>
         <ul className={styles.list}>
           <li className={styles.item}>
-            <a href="" className={`${styles.link} ${styles.linkSale}`}>
+            <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} href="" className={`${styles.link} ${styles.linkSale}`}>
               Sale
             </a>
             <ul className={styles.dropdown}>
@@ -77,7 +87,7 @@ function Navbar() {
             </ul>
           </li>
           <li className={styles.item}>
-            <a href="" className={styles.link}>
+            <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} href="" className={styles.link}>
               Men
             </a>
             <ul className={styles.dropdown}>
@@ -109,7 +119,7 @@ function Navbar() {
             </ul>
           </li>
           <li className={styles.item}>
-            <a href="" className={styles.link}>
+            <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} href="" className={styles.link}>
               Women
             </a>
             <ul className={styles.dropdown}>
@@ -141,7 +151,7 @@ function Navbar() {
             </ul>
           </li>
           <li className={styles.item}>
-            <a href="" className={styles.link}>
+            <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} href="" className={styles.link}>
               Boy
             </a>
             <ul className={styles.dropdown}>
@@ -173,7 +183,7 @@ function Navbar() {
             </ul>
           </li>
           <li className={styles.item}>
-            <a href="" className={styles.link}>
+            <a onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} href="" className={styles.link}>
               Girl
             </a>
             <ul className={styles.dropdown}>

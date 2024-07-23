@@ -67,9 +67,17 @@
   color: var(--color-neutral-800);
   cursor: pointer;
   display: flex;
-  height: 28px;
-  justify-content: center;
-  width: 28px;
+  gap: .25rem;
+  height: 1.75rem;
+  text-decoration: none;
+}
+
+.iconBtn span {
+  font-size: 1rem;
+}
+
+.iconBtn:hover span {
+  text-decoration: underline;
 }
 
 .nav {
@@ -81,15 +89,34 @@
 .list {
   align-items: center;
   display: flex;
-  gap: 2rem;
 }
 
 .link {
   color: inherit;
   font-weight: 500;
   text-decoration: none;
-  padding-inline: 0.5rem;
+  padding-bottom: 1rem;
+  padding-inline: 1rem;
   position: relative;
+}
+
+.link::after {
+  background-color: var(--color-neutral-800);
+  bottom: 0;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transition: .5s ease-in-out;
+  width: 0;
+}
+
+.linkSale::after {
+  background-color: var(--color-primary);
+}
+
+.link:hover::after {
+  width: 100%;
 }
 
 .linkSale {
@@ -99,12 +126,12 @@
 .dropdown {
   background-color: var(--color-neutral-300);
   display: flex;
-  gap: 2rem;
   flex-direction: column;
+  gap: 2rem;
   left: -100%;
   padding: 2rem;
   position: absolute;
-  top: 6.25rem;
+  top: 6.55rem;
   bottom: 0;
   transition: 0.5s ease-in-out;
   width: 50%;
@@ -114,6 +141,10 @@
 .item:hover .dropdown,
 .item:focus-within .dropdown {
   left: 0;
+}
+
+.item:hover body {
+  overflow: hidden;
 }
 
 .dropdownLink {
@@ -188,6 +219,10 @@
 
   .search.active {
     top: 0;
+  }
+
+  .iconBtn span {
+    display: none;
   }
 
   .iconBtn.searchClose {
