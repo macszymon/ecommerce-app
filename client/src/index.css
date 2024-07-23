@@ -1,1 +1,95 @@
+/* FONTS IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* RESETS */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* COLORS */
+:root {
+  --color-primary: #ed1c24;
+  --color-neutral-900: #000000;
+  --color-neutral-800: #13151b;
+  --color-neutral-700: #1f212c;
+  --color-neutral-600: #454545;
+  --color-neutral-500: #a0a0a0;
+  --color-neutral-400: #d6d6d6;
+  --color-neutral-300: #f4f4f4;
+  --color-neutral-200: #efecf0;
+  --color-neutral-100: #ffffff;
+}
+
+body {
+  background-color: var(--color-neutral-300);
+  color: var(--color-neutral-800);
+  font-family: "Montserrat", sans-serif;
+  min-height: 100vh;
+}
+
+.block-scroll {
+    overflow: hidden;
+}
+
+.logo {
+  color: inherit;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.25rem;
+  text-decoration: none;
+}
+
+.btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.btn--primary {
+    background-color: var(--color-primary);
+    color: var(--color-neutral-200);
+    font-weight: 600;
+    overflow: hidden;
+    padding: .75rem 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.btn--primary::after {
+    background-color: var(--color-neutral-200);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 100%;
+    transition: .5s ease-in-out;
+    width: 100%;
+    z-index: -1;
+}
+
+.btn--primary:hover {
+    color: var(--color-primary);
+}
+
+.btn--primary:hover::after {
+    top: 0;
+}
