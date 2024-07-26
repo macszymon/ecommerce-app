@@ -9,9 +9,9 @@ function Navbar() {
 
   useEffect(() => {
     const handleResize = () => {
-      if(window.innerWidth >= 750) {
+      if (window.innerWidth >= 750) {
         setIsActive(false);
-        document.body.classList.remove("block-scroll")
+        document.body.classList.remove("block-scroll");
       }
     };
     window.addEventListener("resize", handleResize);
@@ -46,17 +46,17 @@ function Navbar() {
   return (
     <header className={styles.header}>
       <div className={styles.wrapper}>
+      <div className={`${styles.search} ${isSearch ? styles.active : ""}`}>
+        <LiaSearchSolid />
+        <input className={styles.input} type="text" placeholder="Search" />
+        <button onClick={() => setIsSearch(false)} className={`${styles.iconBtn} ${styles.searchClose}`}>
+          <LiaTimesSolid />
+        </button>
+      </div>
         <div className={`${styles.hamburger} ${isActive ? styles.active : ""}`} onClick={handleHamburgerClick}>
           <span className={styles.bar}></span>
           <span className={styles.bar}></span>
           <span className={styles.bar}></span>
-        </div>
-        <div className={`${styles.search} ${isSearch ? styles.active : ""}`}>
-          <LiaSearchSolid />
-          <input className={styles.input} type="text" placeholder="Search" />
-          <button onClick={() => setIsSearch(false)} className={`${styles.iconBtn} ${styles.searchClose}`}>
-            <LiaTimesSolid />
-          </button>
         </div>
         <a className="logo" href="">
           CLOTHES

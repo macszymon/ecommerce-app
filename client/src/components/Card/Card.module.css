@@ -1,0 +1,62 @@
+.container {
+  flex: 1 0 100%;
+  max-width: 17rem;
+  position: relative;
+  scroll-snap-align: start;
+  transition: 0.3s ease-in-out;
+}
+
+.card {
+  color: var(--color-neutral-800);
+  text-decoration: none;
+}
+
+.image {
+  height: 24.25rem;
+  margin-bottom: 0.15rem;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 0.15rem;
+}
+
+.wrapper {
+  align-items: end;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.price {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.priceDiscount {
+  color: var(--color-primary);
+}
+
+.priceOld {
+  color: var(--color-neutral-600);
+  font-size: 0.8rem;
+  text-decoration: line-through;
+}
+
+.favoritesBtn {
+  align-items: center;
+  background-color: var(--color-neutral-200);
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  font-size: 1.25rem;
+  justify-content: center;
+  padding: 0.3rem;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}

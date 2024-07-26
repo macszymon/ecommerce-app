@@ -6,7 +6,7 @@
   height: calc(100dvh - 6.0625rem);
   justify-content: center;
   position: relative;
-  margin-bottom: 5rem;
+  margin-bottom: 7rem;
 }
 
 .header {
@@ -22,7 +22,7 @@
 }
 
 .img {
-  filter: brightness(0.5) grayscale(1);
+  filter: brightness(.9) grayscale(1);
   height: 100%;
   object-fit: cover;
   object-position: center;
