@@ -3,7 +3,7 @@
   color: var(--color-primary);
   display: flex;
   flex-direction: column;
-  height: calc(100dvh - 6.0625rem);
+  height: calc(100dvh - 4.2rem);
   justify-content: center;
   position: relative;
   margin-bottom: 7rem;
@@ -22,7 +22,7 @@
 }
 
 .img {
-  filter: brightness(.9) grayscale(1);
+  filter: brightness(.7);
   height: 100%;
   object-fit: cover;
   object-position: center;
@@ -31,9 +31,9 @@
   z-index: -1;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 850px) {
   .hero {
-    height: calc(100dvh - 3.1rem);   
+    height: calc(100vh - 3.1rem);   
   }
 
   .header {

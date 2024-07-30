@@ -1,12 +1,12 @@
 .main {
   position: relative;
-  margin-bottom: 5rem;
+  margin-bottom: 7rem;
 }
 
 .title {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: .75rem;
+  margin-bottom: .7em;
 }
 
 .categories {
@@ -14,6 +14,14 @@
   display: flex;
   gap: 1rem;
   margin-bottom: 1.25rem;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.categories::-webkit-scrollbar {
+  display: none;
 }
 
 .category {
@@ -36,7 +44,6 @@
 }
 
 .slider {
-  background-color: var(--color-neutral-300);
   display: flex;
   gap: 0.5rem;
   overflow-x: scroll;
@@ -53,7 +60,7 @@
 
 .cardMore {
   align-items: end;
-  background-color: var(--color-neutral-400);
+  background-color: var(--color-neutral-500);
   color: var(--color-neutral-800);
   display: flex;
   font-size: 1rem;

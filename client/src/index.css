@@ -1,5 +1,5 @@
 /* FONTS IMPORTS */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 /* RESETS */
 * {
@@ -40,7 +40,7 @@ select {
 }
 
 body {
-  background-color: var(--color-neutral-300);
+  background-color: var(--color-neutral-400);
   color: var(--color-neutral-800);
   font-family: "Montserrat", sans-serif;
   min-height: 100vh;
@@ -53,55 +53,71 @@ body {
 }
 
 .block-scroll {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .logo {
   color: inherit;
   font-size: 1.5rem;
   font-weight: 700;
-  letter-spacing: 0.25rem;
+  letter-spacing: 0.1rem;
   text-decoration: none;
 }
 
 .btn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  overflow: hidden;
+  padding: 1rem 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .btn--primary {
-    background-color: var(--color-primary);
-    color: var(--color-neutral-200);
-    font-weight: 600;
-    overflow: hidden;
-    padding: .75rem 1.5rem;
-    position: relative;
-    z-index: 1;
+  background-color: var(--color-primary);
+  color: var(--color-neutral-200);
+}
+
+.btn--secondary {
+  background-color: var(--color-neutral-200);
+  color: var(--color-neutral-800);
+}
+
+.btn::after {
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 100%;
+  transition: 0.4s ease-in-out;
+  width: 100%;
+  z-index: -1;
 }
 
 .btn--primary::after {
-    background-color: var(--color-neutral-200);
-    content: '';
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 100%;
-    transition: .4s ease-in-out;
-    width: 100%;
-    z-index: -1;
+  background-color: var(--color-neutral-200);
+}
+
+.btn--secondary::after {
+  background-color: var(--color-neutral-800);
 }
 
 .btn--primary:hover {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
 
-.btn--primary:hover::after {
-    top: 0;
+.btn--secondary:hover {
+  color: var(--color-neutral-200);
+}
+
+.btn:hover::after {
+  top: 0;
 }
 
 @media (max-width: 750px) {
   .container {
-    padding-inline: .5rem;
+    padding-inline: 0.5rem;
   }
 }

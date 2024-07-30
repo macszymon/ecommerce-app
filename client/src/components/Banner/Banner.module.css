@@ -1,0 +1,48 @@
+.main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: calc(100dvh - 4.2rem);
+  justify-content: center;
+  margin-bottom: 7rem;
+  padding-inline: 0.5rem;
+  padding-block: 2rem;
+  position: relative;
+}
+
+.img {
+  filter: brightness(0.7);
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.title {
+  color: var(--color-neutral-200);
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.buttons {
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  bottom: 4rem;
+}
+
+@media (max-width: 850px) {
+  .main {
+    height: calc(100dvh - 3.1rem);
+    justify-content: space-between;
+  }
+  .title {
+    font-size: 2.5rem;
+  }
+}

@@ -26,8 +26,6 @@ function ProductsSlider({}: Props) {
       <div className={styles.categories}>
         <button onClick={() => setActive("men")} disabled={active==="men"} className={`${styles.category} ${active === "men" && styles.active}`}>Men</button>
         <button onClick={() => setActive("women")} disabled={active==="women"} className={`${styles.category} ${active === "women" && styles.active}`}>Women</button>
-        <button onClick={() => setActive("boy")} disabled={active==="boy"} className={`${styles.category} ${active === "boy" && styles.active}`}>Boy</button>
-        <button onClick={() => setActive("girl")} disabled={active==="girl"} className={`${styles.category} ${active === "girl" && styles.active}`}>Girl</button>
       </div>
       <div className={`${styles.slider}`} ref={slider}>
         {data.map((product) => {

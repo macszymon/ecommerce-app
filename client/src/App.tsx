@@ -1,5 +1,7 @@
+import Banner from "./components/Banner/Banner";
 import Hero from "./components/Hero/Hero";
 import Navbar from "./components/Navbar/Navbar";
+import Newsletter from "./components/Newsletter/Newsletter";
 import ProductsSlider from "./components/ProductsSlider/ProductsSlider";
 
 function App() {
@@ -9,6 +11,9 @@ function App() {
       <main>
         <Hero />
         <ProductsSlider />
+        <Banner/>
+        <ProductsSlider/>
+        <Newsletter/>
       </main>
     </div>
   );
