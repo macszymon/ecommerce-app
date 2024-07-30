@@ -60,7 +60,7 @@
 
 .cardMore {
   align-items: end;
-  background-color: var(--color-neutral-500);
+  background-color: var(--color-neutral-400);
   color: var(--color-neutral-800);
   display: flex;
   font-size: 1rem;

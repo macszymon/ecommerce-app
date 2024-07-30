@@ -1,5 +1,6 @@
 .header {
   background-color: var(--color-neutral-300);
+  border-bottom: 1px solid var(--color-neutral-400);
   padding-inline: 1rem;
   position: sticky;
   top: 0;
@@ -30,10 +31,6 @@
 
 .search:hover {
   filter: brightness(0.96);
-}
-
-.search:focus-within {
-  outline: 2px solid var(--color-neutral-800);
 }
 
 .iconBtn.searchClose {
@@ -191,9 +188,10 @@
   .search {
     background-color: var(--color-neutral-300);
     border: none;
+    border-bottom: 1px solid var(--color-neutral-400);
     display: flex;
     left: 0;
-    padding: 0.75rem;
+    padding: 0.7rem;
     position: absolute;
     top: -100%;
     transition: 0.5s ease-in-out;

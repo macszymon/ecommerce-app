@@ -1,7 +1,7 @@
 .main {
-    background-color: var(--color-neutral-100);
-    text-align: center;
+    background-color: var(--color-neutral-200);
     padding: 5rem 1rem;
+    text-align: center;
 }
 
 .title {
@@ -29,7 +29,9 @@
     background-color: transparent;
     border: none;
     border-bottom: 1px solid var(--color-neutral-800);
-    padding: 1rem;
+    max-width: 25rem;
+    padding-block: 1rem;
+    width: 100%;
 }
 
 .input:focus {
