@@ -85,6 +85,11 @@ body {
   color: var(--color-neutral-800);
 }
 
+.btn--tertiary {
+  background-color: var(--color-neutral-800);
+  color: var(--color-neutral-200);
+}
+
 .btn::after {
   content: "";
   height: 100%;
@@ -96,12 +101,20 @@ body {
   z-index: -1;
 }
 
+.btn:hover::after {
+  top: 0;
+}
+
 .btn--primary::after {
   background-color: var(--color-neutral-200);
 }
 
 .btn--secondary::after {
   background-color: var(--color-neutral-800);
+}
+
+.btn--tertiary::after {
+  background-color: var(--color-neutral-200);
 }
 
 .btn--primary:hover {
@@ -112,8 +125,8 @@ body {
   color: var(--color-neutral-200);
 }
 
-.btn:hover::after {
-  top: 0;
+.btn--tertiary:hover {
+  color: var(--color-neutral-800);
 }
 
 @media (max-width: 750px) {
