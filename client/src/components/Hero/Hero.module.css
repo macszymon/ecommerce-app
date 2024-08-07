@@ -6,17 +6,17 @@
   height: calc(100dvh - 4.2rem);
   justify-content: center;
   position: relative;
-  margin-bottom: 7rem;
+  margin-bottom: 10rem;
 }
 
 .header {
-  font-size: 9rem;
+  font-size: 15rem;
   line-height: 0.75;
   letter-spacing: 1rem;
 }
 
 .subheader {
-  font-size: 2rem;
+  font-size: 4.5rem;
   letter-spacing: 1rem;
   margin-bottom: 1rem;
 }
@@ -34,14 +34,15 @@
 @media (max-width: 850px) {
   .hero {
     height: calc(100vh - 3.1rem);   
+    margin-bottom: 5rem;
   }
 
   .header {
-    font-size: 5.5rem;
+    font-size: 6.5rem;
   }
 
   .subheader {
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     letter-spacing: .55rem;
   }
 }

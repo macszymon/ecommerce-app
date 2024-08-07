@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
 
 import { LiaHeart, LiaSearchSolid, LiaShoppingBagSolid, LiaTimesSolid } from "react-icons/lia";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
@@ -39,23 +40,23 @@ function Navbar() {
           <span className={styles.bar}></span>
           <span className={styles.bar}></span>
         </div>
-        <a className="logo" href="">
+        <Link to="/" className="logo">
           CLOTHES
-        </a>
+        </Link>
         <nav className={`${styles.nav} ${isActive ? styles.active : ""}`}>
           <ul className={styles.list}>
             <li className={`${styles.item} ${styles.itemSale}`}>
               Sale
               <ul className={styles.dropdown}>
                 <li>
-                  <a className={`${styles.dropdownLink} ${styles.dropdownLinkSale}`} href="">
+                  <Link to="/men/sale" className={`${styles.dropdownLink} ${styles.dropdownLinkSale}`}>
                     Men
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={`${styles.dropdownLink} ${styles.dropdownLinkSale}`} href="">
+                  <Link to="/women/sale" className={`${styles.dropdownLink} ${styles.dropdownLinkSale}`}>
                     Women
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -63,14 +64,14 @@ function Navbar() {
               New
               <ul className={styles.dropdown}>
                 <li>
-                  <a className={styles.dropdownLink} href="">
+                  <Link to="men/new" className={styles.dropdownLink}>
                     Men
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.dropdownLink} href="">
+                  <Link to="women/new" className={styles.dropdownLink}>
                     Women
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -78,29 +79,39 @@ function Navbar() {
               Men
               <ul className={styles.dropdown}>
                 <li>
-                  <a className={`${styles.dropdownLink} ${styles.dropdownLinkSale}`} href="">
+                  <Link to="men/sale" className={`${styles.dropdownLink} ${styles.dropdownLinkSale}`}>
                     Sale
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.dropdownLink} href="">
+                  <Link to="men/new" className={styles.dropdownLink}>
                     New Collection
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.dropdownLink} href="">
-                    Clothes
-                  </a>
+                  <Link to="men/tops" className={styles.dropdownLink}>
+                  Tops
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.dropdownLink} href="">
+                  <Link to="men/bottoms" className={styles.dropdownLink}>
+                    Bottoms
+                  </Link>
+                </li>
+                <li>
+                  <Link to="men/fullbody" className={styles.dropdownLink}>
+                    Full-Body
+                  </Link>
+                </li>
+                <li>
+                  <Link to="men/shoes" className={styles.dropdownLink}>
                     Shoes
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.dropdownLink} href="">
+                  <Link to="men/accessories" className={styles.dropdownLink}>
                     Bags and accessories
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -108,29 +119,39 @@ function Navbar() {
               Women
               <ul className={styles.dropdown}>
                 <li>
-                  <a className={`${styles.dropdownLink} ${styles.dropdownLinkSale}`} href="">
+                  <Link to="women/sale" className={`${styles.dropdownLink} ${styles.dropdownLinkSale}`}>
                     Sale
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.dropdownLink} href="">
+                  <Link to="women/new" className={styles.dropdownLink}>
                     New Collection
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.dropdownLink} href="">
-                    Clothes
-                  </a>
+                  <Link to="women/tops" className={styles.dropdownLink}>
+                  Tops
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.dropdownLink} href="">
+                  <Link to="women/bottoms" className={styles.dropdownLink}>
+                    Bottoms
+                  </Link>
+                </li>
+                <li>
+                  <Link to="women/fullbody" className={styles.dropdownLink}>
+                    Full-Body
+                  </Link>
+                </li>
+                <li>
+                  <Link to="women/shoes" className={styles.dropdownLink}>
                     Shoes
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className={styles.dropdownLink} href="">
+                  <Link to="women/accessories" className={styles.dropdownLink}>
                     Bags and accessories
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -147,14 +168,14 @@ function Navbar() {
           <button className={`${styles.iconBtn} ${styles.searchIcon}`} onClick={handleSearchClick}>
             <LiaSearchSolid />
           </button>
-          <a href="" className={styles.iconBtn}>
+          <Link to="favorites" className={styles.iconBtn}>
             <LiaHeart />
             <span>Favorites</span>
-          </a>
-          <a href="" className={styles.iconBtn}>
+          </Link>
+          <Link to="cart" className={styles.iconBtn}>
             <LiaShoppingBagSolid />
             <span>Cart</span>
-          </a>
+          </Link>
         </div>
       </div>
     </header>

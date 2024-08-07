@@ -1,17 +1,19 @@
+import { Link } from "react-router-dom";
 import styles from "./Banner.module.css";
 
-import image from "../../assets/NewBanner.jpg"
+type Props = {
+  image: string;
+  collection: string;
+};
 
-type Props = {};
-
-function Banner({}: Props) {
+function Banner({collection, image}: Props) {
   return (
     <section className={styles.main}>
       <img className={styles.img} src={image} alt="" />
-      <h3 className={styles.title}>New Collection</h3>
+      <h3 className={styles.title}>{collection}</h3>
       <div className={styles.buttons}>
-        <button className="btn btn--secondary">For Him</button>
-        <button className="btn btn--secondary">For Her</button>
+        <Link to={"/men/" + collection} className="btn btn--secondary">For Him</Link>
+        <Link to={"/women/" + collection} className="btn btn--secondary">For Her</Link>
       </div>
     </section>
   );

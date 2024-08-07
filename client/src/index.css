@@ -68,10 +68,12 @@ body {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  display: inline-block;
   font-weight: 600;
   overflow: hidden;
   padding: 1rem 2rem;
   position: relative;
+  text-decoration: none;
   z-index: 1;
 }
 

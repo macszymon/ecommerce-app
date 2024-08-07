@@ -1,12 +1,11 @@
 .main {
-  align-items: center;
+  align-items: start;
   display: flex;
   flex-direction: column;
   height: calc(100dvh - 4.2rem);
-  justify-content: center;
-  margin-bottom: 7rem;
-  padding-inline: 0.5rem;
-  padding-block: 2rem;
+  justify-content: flex-end;
+  margin-bottom: 10rem;
+  padding: 2rem; 
   position: relative;
 }
 
@@ -27,6 +26,7 @@
   font-size: 5rem;
   margin-bottom: 1rem;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .buttons {
@@ -40,9 +40,9 @@
 @media (max-width: 850px) {
   .main {
     height: calc(100dvh - 3.1rem);
-    justify-content: space-between;
+    margin-bottom: 5rem;
   }
   .title {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
   }
 }

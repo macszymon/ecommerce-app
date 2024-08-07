@@ -1,19 +1,38 @@
 .main {
   position: relative;
-  margin-bottom: 7rem;
+  margin-bottom: 10rem;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  margin-bottom: 1rem;
+}
+
+.image {
+  filter: brightness(.7);
+  max-height: 30rem;
+  object-fit: cover;
+  width: 100%;
+}
+
+.headerBox {
+  background-color: var(--color-neutral-200);
+  padding: 5rem 2rem;
 }
 
 .title {
   font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: .7em;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
 }
 
 .categories {
   align-items: center;
   display: flex;
   gap: 1rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   overflow-x: scroll;
   -ms-overflow-style: none;
   scroll-behavior: smooth;
@@ -26,11 +45,13 @@
 
 .category {
   background-color: transparent;
-  border: 1px solid var(--color-neutral-800);
+  border: none;
+  border-bottom: 1px solid transparent;
+  color: var(--color-neutral-500);
   cursor: pointer;
   font-weight: 500;
-  padding: .25rem 1rem;
-  transition: .3s ease-in-out;
+  padding: 0.25rem;
+  transition: 0.3s ease-in-out;
 }
 
 .category:disabled {
@@ -38,9 +59,8 @@
 }
 
 .category.active {
-  background-color: var(--color-neutral-800);
-  border-color: var(--color-neutral-800);
-  color: var(--color-neutral-200);
+  border-bottom: 1px solid var(--color-neutral-800);
+  color: var(--color-neutral-800);
 }
 
 .slider {
@@ -60,8 +80,8 @@
 
 .cardMore {
   align-items: end;
-  background-color: var(--color-neutral-400);
-  color: var(--color-neutral-800);
+  background-color: var(--color-neutral-800);
+  color: var(--color-neutral-200);
   display: flex;
   font-size: 1rem;
   font-weight: 500;
@@ -69,8 +89,8 @@
   height: 24.25rem;
   padding: 3rem 1rem;
   position: relative;
-  text-decoration: none;
   max-width: 17rem;
+  text-decoration: none;
 }
 
 .arrow {
@@ -93,9 +113,9 @@
   opacity: 1;
 }
 
-.arrowLeft, .arrowRight {
-  top: 50%;
-  transform: translateY(-50%);
+.arrowLeft,
+.arrowRight {
+  bottom: 13.5rem;
 }
 
 .arrowLeft {
@@ -111,7 +131,29 @@
   right: 1rem;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 850px) {
+  .main {
+    margin-bottom: 5rem;
+  }
+
+  .header {
+    grid-template-columns: 1fr;
+    position: relative;
+  }
+
+  .headerBox {
+    background-color: transparent;
+    bottom: 1rem;
+    color: var(--color-neutral-200);
+    left: 1rem;
+    padding: 0;
+    position: absolute;
+  }
+
+  .title {
+    margin-bottom: 1rem;
+  }
+
   .arrow {
     display: none;
   }
