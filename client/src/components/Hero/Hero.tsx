@@ -8,7 +8,7 @@ function Hero() {
     <section className={styles.hero}>
         <h1 className={styles.header}>SALE</h1>
         <h2 className={styles.subheader}>up to 70% off</h2>
-        <Link to="women/sale" className="btn btn--primary">Buy Now</Link>
+        <Link to="/women/sale" className="btn btn--primary">Buy Now</Link>
         <img className={styles.img} src={image} alt="" />
     </section>
   )

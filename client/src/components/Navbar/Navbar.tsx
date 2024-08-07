@@ -64,12 +64,12 @@ function Navbar() {
               New
               <ul className={styles.dropdown}>
                 <li>
-                  <Link to="men/new" className={styles.dropdownLink}>
+                  <Link to="/men/new" className={styles.dropdownLink}>
                     Men
                   </Link>
                 </li>
                 <li>
-                  <Link to="women/new" className={styles.dropdownLink}>
+                  <Link to="/women/new" className={styles.dropdownLink}>
                     Women
                   </Link>
                 </li>
@@ -79,37 +79,37 @@ function Navbar() {
               Men
               <ul className={styles.dropdown}>
                 <li>
-                  <Link to="men/sale" className={`${styles.dropdownLink} ${styles.dropdownLinkSale}`}>
+                  <Link to="/men/sale" className={`${styles.dropdownLink} ${styles.dropdownLinkSale}`}>
                     Sale
                   </Link>
                 </li>
                 <li>
-                  <Link to="men/new" className={styles.dropdownLink}>
+                  <Link to="/men/new" className={styles.dropdownLink}>
                     New Collection
                   </Link>
                 </li>
                 <li>
-                  <Link to="men/tops" className={styles.dropdownLink}>
+                  <Link to="/men/tops" className={styles.dropdownLink}>
                   Tops
                   </Link>
                 </li>
                 <li>
-                  <Link to="men/bottoms" className={styles.dropdownLink}>
+                  <Link to="/men/bottoms" className={styles.dropdownLink}>
                     Bottoms
                   </Link>
                 </li>
                 <li>
-                  <Link to="men/fullbody" className={styles.dropdownLink}>
+                  <Link to="/men/fullbody" className={styles.dropdownLink}>
                     Full-Body
                   </Link>
                 </li>
                 <li>
-                  <Link to="men/shoes" className={styles.dropdownLink}>
+                  <Link to="/men/shoes" className={styles.dropdownLink}>
                     Shoes
                   </Link>
                 </li>
                 <li>
-                  <Link to="men/accessories" className={styles.dropdownLink}>
+                  <Link to="/men/accessories" className={styles.dropdownLink}>
                     Bags and accessories
                   </Link>
                 </li>
@@ -119,37 +119,37 @@ function Navbar() {
               Women
               <ul className={styles.dropdown}>
                 <li>
-                  <Link to="women/sale" className={`${styles.dropdownLink} ${styles.dropdownLinkSale}`}>
+                  <Link to="/women/sale" className={`${styles.dropdownLink} ${styles.dropdownLinkSale}`}>
                     Sale
                   </Link>
                 </li>
                 <li>
-                  <Link to="women/new" className={styles.dropdownLink}>
+                  <Link to="/women/new" className={styles.dropdownLink}>
                     New Collection
                   </Link>
                 </li>
                 <li>
-                  <Link to="women/tops" className={styles.dropdownLink}>
+                  <Link to="/women/tops" className={styles.dropdownLink}>
                   Tops
                   </Link>
                 </li>
                 <li>
-                  <Link to="women/bottoms" className={styles.dropdownLink}>
+                  <Link to="/women/bottoms" className={styles.dropdownLink}>
                     Bottoms
                   </Link>
                 </li>
                 <li>
-                  <Link to="women/fullbody" className={styles.dropdownLink}>
+                  <Link to="/women/fullbody" className={styles.dropdownLink}>
                     Full-Body
                   </Link>
                 </li>
                 <li>
-                  <Link to="women/shoes" className={styles.dropdownLink}>
+                  <Link to="/women/shoes" className={styles.dropdownLink}>
                     Shoes
                   </Link>
                 </li>
                 <li>
-                  <Link to="women/accessories" className={styles.dropdownLink}>
+                  <Link to="/women/accessories" className={styles.dropdownLink}>
                     Bags and accessories
                   </Link>
                 </li>

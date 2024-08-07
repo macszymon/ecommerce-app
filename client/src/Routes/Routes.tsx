@@ -2,6 +2,8 @@ import { createBrowserRouter, Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import Home from "../Pages/Home/Home";
+import Products from "../Pages/Products/Products";
+import Product from "../Pages/Product/Product";
 
 const Layout = () => {
   return (
@@ -51,11 +53,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/men/:collection/:type?",
-        element: <Home />,
+        element: <Products />,
       },
       {
         path: "/women/:collection/:type?",
-        element: <Home />,
+        element: <Products />,
+      },
+      {
+        path: "/product/:id",
+        element: <Product />,
       },
     ],
   },
