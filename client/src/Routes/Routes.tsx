@@ -4,16 +4,25 @@ import Footer from "../components/Footer/Footer";
 import Home from "../Pages/Home/Home";
 import Products from "../Pages/Products/Products";
 import Product from "../Pages/Product/Product";
+import ScrollToTop from "../helpers/ScrollToTop";
+import Faq from "../Pages/Faqs/Faqs";
+import Search from "../Pages/Search/Search";
+import Error from "../Pages/Error/Error";
+import { AppProvider } from "../context/appContext";
+import Cart from "../Pages/Cart/Cart";
 
 const Layout = () => {
   return (
-      <>
+    <>
+      <AppProvider>
+        <ScrollToTop />
         <Navbar />
         <main>
           <Outlet />
         </main>
         <Footer />
-      </>
+      </AppProvider>
+    </>
   );
 };
 
@@ -21,7 +30,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    errorElement: <Home />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -33,30 +42,18 @@ export const router = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <Home />,
+        element: <Cart />,
       },
       {
         path: "/search/:input",
-        element: <Home />,
+        element: <Search />,
       },
       {
         path: "/faq",
-        element: <Home />,
+        element: <Faq />,
       },
       {
-        path: "/about",
-        element: <Home />,
-      },
-      {
-        path: "/contact",
-        element: <Home />,
-      },
-      {
-        path: "/men/:collection/:type?",
-        element: <Products />,
-      },
-      {
-        path: "/women/:collection/:type?",
+        path: "/:gender/:collection/:type?",
         element: <Products />,
       },
       {

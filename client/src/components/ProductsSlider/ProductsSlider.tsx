@@ -1,9 +1,7 @@
-import { useEffect, useRef, useState } from "react";
-import Card from "../Card/Card";
 import styles from "./ProductSlider.module.css";
-import { data } from "../../data";
-import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import Slider from "../Slider/Slider";
+import { useState } from "react";
 
 type Props = {
   title: string;
@@ -13,58 +11,6 @@ type Props = {
 
 function ProductsSlider({ title, image, type }: Props) {
   const [active, setActive] = useState("men");
-  const slider = useRef<HTMLDivElement>(null);
-  const [filteredData, setFilteredData] = useState(
-    data
-      .filter((item) => {
-        if (item.gender !== active) {
-          return false;
-        }
-
-        if (type === "sale") {
-          return item.discount > 0;
-        } else if (type === "new") {
-          return item.category === "new";
-        } else {
-          return true;
-        }
-      })
-      .slice(0, 6)
-  );
-
-  useEffect(() => {
-    setFilteredData(
-      data
-        .filter((item) => {
-          if (item.gender !== active) {
-            return false;
-          }
-
-          if (type === "sale") {
-            return item.discount > 0;
-          } else if (type === "new") {
-            return item.category === "new";
-          } else {
-            return true;
-          }
-        })
-        .slice(0, 6)
-    );
-
-    if (!slider.current) return;
-    slider.current.scrollTo(0, 0);
-    
-  }, [active]);
-
-  const nextSlide = () => {
-    if (!slider.current) return;
-    slider.current.scrollTo(slider.current.scrollLeft + 17 * 16, 0);
-  };
-
-  const prevSlide = () => {
-    if (!slider.current) return;
-    slider.current.scrollTo(slider.current.scrollLeft - 17 * 16, 0);
-  };
 
   return (
     <section className={`${styles.main} container`}>
@@ -83,20 +29,7 @@ function ProductsSlider({ title, image, type }: Props) {
           Women
         </button>
       </div>
-      <div className={`${styles.slider}`} ref={slider}>
-        {filteredData.map((product) => {
-          return <Card key={product.id} id={product.id} name={product.name} price={product.price} discount={product.discount} imageUrl={product.imageUrl} />;
-        })}
-        <Link to={`/${active}/${type}`} className={styles.cardMore}>
-          See More
-        </Link>
-      </div>
-      <button className={`${styles.arrow} ${styles.arrowLeft}`} onClick={prevSlide}>
-        <RiArrowLeftSLine />
-      </button>
-      <button className={`${styles.arrow} ${styles.arrowRight}`} onClick={nextSlide}>
-        <RiArrowRightSLine />
-      </button>
+      <Slider gender={active} collection={type}/>
     </section>
   );
 }

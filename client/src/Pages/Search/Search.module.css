@@ -1,0 +1,45 @@
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-block: 2rem;
+}
+
+.title {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.noResults {
+    font-size: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin-block: 10rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem 0.5rem;
+  justify-items: center;
+  margin-bottom: 10rem;
+}
+
+@media (max-width: 1000px) {
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

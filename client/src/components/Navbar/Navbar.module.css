@@ -70,17 +70,32 @@
   display: flex;
   gap: 0.25rem;
   height: 1.75rem;
+  position: relative;
   text-decoration: none;
 }
 
-.iconBtn span {
-  color: var(--color-neutral-700);
+.iconName{
   font-size: 0.9rem;
   font-weight: 500;
 }
 
-.iconBtn:hover span {
+.iconBtn:hover .iconName {
   text-decoration: underline;
+}
+
+.quantity {
+  align-items: center;
+  background-color: var(--color-neutral-800);
+  border-radius: 50%;
+  color: var(--color-neutral-100);
+  display: flex;
+  font-size: .7rem;
+  height: 1rem;
+  justify-content: center;
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  width: 1rem;
 }
 
 .list {
@@ -127,8 +142,7 @@
   z-index: 10;
 }
 
-.item:hover .dropdown,
-.item:focus-within .dropdown {
+.item:hover .dropdown {
   left: 0;
 }
 
@@ -203,11 +217,15 @@
     border: none;
   }
 
+  .search:hover {
+    filter: brightness(1);
+  }
+
   .search.active {
     top: 0;
   }
 
-  .iconBtn span {
+  .iconName {
     display: none;
   }
 

@@ -1,0 +1,278 @@
+.navigation {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding-block: 1.5rem;
+}
+
+.list {
+  align-items: center;
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+}
+
+.item {
+  align-items: center;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.item svg {
+  font-size: 0.75rem;
+}
+
+.navigation a {
+  color: var(--color-neutral-800);
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.navigation a:hover {
+  text-decoration: underline;
+}
+
+.navigationName {
+  color: var(--color-primary);
+}
+
+.main {
+  align-items: start;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  margin-bottom: 5rem;
+  position: relative;
+}
+
+.info {
+  padding: 5rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 5rem;
+}
+
+.image {
+  aspect-ratio: 0.7 / 1;
+  object-fit: cover;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.details {
+    border-top: 1px solid var(--color-neutral-500);
+    grid-column: 1;
+}
+
+.detail {
+    border-bottom: 1px solid var(--color-neutral-500);
+    display: flex;
+    flex-direction: column;
+}
+
+.detail span {
+  font-size: .9rem;
+    max-height: 0;
+    transition: .3s ease-in-out;
+    overflow: hidden;
+}
+
+.detail .active {
+    max-height: 20rem;
+    padding-bottom: 1rem;
+}
+
+.detail svg {
+    color: var(--color-neutral-600);
+    font-size: 1.25rem;
+}
+
+.detail strong {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.detail button {
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    font-weight: 600;
+    justify-content: space-between;
+    padding-block: 1rem;
+    text-transform: uppercase;
+}
+
+.sale {
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+.name {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.prices {
+  align-items: center;
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 2rem;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.priceDiscount {
+  color: var(--color-primary);
+}
+
+.priceOld {
+  color: var(--color-neutral-600);
+  font-size: 1rem;
+  text-decoration: line-through;
+}
+
+.sizes {
+  margin-bottom: 2rem;
+}
+
+.sizesTitle {
+  color: var(--color-neutral-600);
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.sizesList {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.sizeBtn {
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid var(--color-neutral-500);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  display: flex;
+  font-size: 0.9rem;
+  height: 2.75rem;
+  justify-content: center;
+  width: 2.75rem;
+}
+
+.sizeBtn:hover {
+  border: 1px solid var(--color-neutral-800);
+}
+
+.sizeBtnActive {
+  border: 2px solid var(--color-neutral-800);
+}
+
+.sizeBtnActive:hover {
+  border: 2px solid var(--color-neutral-800);
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btnCart {
+  align-items: center;
+  background-color: var(--color-neutral-800);
+  border: none;
+  color: var(--color-neutral-200);
+  cursor: pointer;
+  display: flex;
+  font-weight: 600;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btnCart svg {
+  font-size: 1.5rem;
+}
+
+.btnCart:hover {
+  background-color: var(--color-neutral-700);
+}
+
+.btnFavorites {
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid var(--color-neutral-800);
+  cursor: pointer;
+  display: flex;
+  font-size: 1.5rem;
+  height: 3.2rem;
+  justify-content: center;
+  transition: 0.3s ease-in-out;
+  width: 3.2rem;
+}
+
+.btnFavorites:hover {
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-neutral-200);
+}
+
+.policies {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.policy {
+    align-items: center;
+    display: flex;
+    gap: .5rem;
+}
+
+.policy svg {
+    font-size: 1.25rem;
+}
+
+.policy span {
+    display: flex;
+    font-size: .8rem;
+    flex-direction: column;
+}
+
+.policy strong {
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.cards {
+  margin-bottom: 5rem;
+}
+
+.cardsHeader {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 850px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .info {
+    padding: 0rem;
+    position: static;
+    top: 0;
+    margin-bottom: 3rem;
+  }
+}

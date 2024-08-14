@@ -23,12 +23,6 @@ function Footer({}: Props) {
         <ul className={styles.list}>
           <li className={styles.itemMain}>Company</li>
           <li className={styles.item}>
-            <Link to="/about">About Us</Link>
-          </li>
-          <li className={styles.item}>
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li className={styles.item}>
             <Link to="/faq">FAQ</Link>
           </li>
         </ul>
@@ -47,6 +41,7 @@ function Footer({}: Props) {
           <FaPinterest />
         </a>
       </div>
+      <p className={styles.attribution}>All images from <a href="https://www.freepik.com/" target="_blank">freepik.com</a></p>
       <p className={styles.attribution}>Made by Szymon Makiewicz</p>
     </footer>
   );

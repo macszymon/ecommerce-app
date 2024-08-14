@@ -16,7 +16,7 @@ function Home({}: Props) {
         type="new"
         image="https://img.freepik.com/free-photo/embracing-trendy-fashionable-couple-isolated-white-studio-background-caucasian-woman-man-posing-basic-minimal-stylish-clothes-concept-relations-fashion-beauty-love-copyspace_155003-36673.jpg?t=st=1722330839~exp=1722334439~hmac=d4d787284934e4272ca207cf1f8883e597a43e25f86fcee3db9a972923450ee3&w=1060"
       />
-      <Banner collection="BASIC" image="https://img.freepik.com/free-photo/trendy-fashionable-couple-isolated-white-studio-wall_155003-44529.jpg?t=st=1722332730~exp=1722336330~hmac=4185914867a81ec28c80a41ce48eec3526220bb8428e4ce7fc3af3624b7265b6&w=1060" />
+      <Banner collection="basic" image="https://img.freepik.com/free-photo/trendy-fashionable-couple-isolated-white-studio-wall_155003-44529.jpg?t=st=1722332730~exp=1722336330~hmac=4185914867a81ec28c80a41ce48eec3526220bb8428e4ce7fc3af3624b7265b6&w=1060" />
       <Newsletter />
     </>
   );
