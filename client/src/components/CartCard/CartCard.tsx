@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
-import { product } from "../../data";
 import styles from "./CartCard.module.css";
+
+import { product } from "../../data";
+
+import { Link } from "react-router-dom";
 import { CiCircleRemove } from "react-icons/ci";
 import { useAppContext } from "../../context/appContext";
 import { useEffect, useState } from "react";
@@ -13,6 +15,7 @@ type Props = {
 
 function CartCard({ product, size, quantity }: Props) {
   const { cart, deleteFromCart, updateItemInCart } = useAppContext();
+
   const [input, setInput] = useState(quantity);
 
   const handleQuantityChange = (value: string) => {

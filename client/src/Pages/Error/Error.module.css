@@ -1,18 +1,18 @@
 .main {
-    background-color: var(--color-neutral-100);
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    height: 100dvh;
-    justify-content: center;   
-    text-transform: uppercase;
+  background-color: var(--color-neutral-100);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100dvh;
+  justify-content: center;
+  text-transform: uppercase;
 }
 
 .title {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 .subtitle {
-    font-size: 1.87rem;
+  font-size: 1.87rem;
 }

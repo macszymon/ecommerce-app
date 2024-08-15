@@ -1,19 +1,19 @@
-import { Link, useParams } from "react-router-dom";
-import { getProduct } from "../../helpers/dataFunctions";
-
 import styles from "./Product.module.css";
-import { IoIosArrowDown, IoIosArrowForward, IoIosArrowUp } from "react-icons/io";
-import { useEffect, useState } from "react";
-import { LiaHeart, LiaShippingFastSolid, LiaShoppingBagSolid, LiaUndoSolid } from "react-icons/lia";
-import Slider from "../../components/Slider/Slider";
+
 import { product } from "../../data";
 import { useAppContext } from "../../context/appContext";
 
-type Props = {};
+import Slider from "../../components/Slider/Slider";
+import { Link, useParams } from "react-router-dom";
+import { getProduct } from "../../helpers/dataFunctions";
+import { IoIosArrowDown, IoIosArrowForward, IoIosArrowUp } from "react-icons/io";
+import { useEffect, useState } from "react";
+import { LiaHeart, LiaShippingFastSolid, LiaShoppingBagSolid, LiaUndoSolid } from "react-icons/lia";
 
-function Product({}: Props) {
-  const { id = "1" } = useParams();
+function Product() {
   const { favorites, addToCart, addToFavorites, deleteFromFavorites } = useAppContext();
+
+  const { id = "1" } = useParams();
   const product: product | undefined = getProduct(parseInt(id));
 
   const [selectedSize, setSelectedSize] = useState(product?.sizes ? product.sizes[0] : "");
@@ -22,8 +22,8 @@ function Product({}: Props) {
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    product && setIsFavorite(favorites.includes(product))
-  }, [id])
+    product && setIsFavorite(favorites.includes(product));
+  }, [id]);
 
   function handleDescriptionClick() {
     setIsDescriptionOpen((prev) => !prev);
@@ -37,7 +37,7 @@ function Product({}: Props) {
 
   function handleAddToCart() {
     if (product) {
-      addToCart({product: product, size: selectedSize, quantity: 1});
+      addToCart({ product: product, size: selectedSize, quantity: 1 });
     }
   }
 

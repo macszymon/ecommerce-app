@@ -10,7 +10,7 @@
 }
 
 .image {
-  filter: brightness(.7);
+  filter: brightness(0.7);
   max-height: 30rem;
   object-fit: cover;
   width: 100%;

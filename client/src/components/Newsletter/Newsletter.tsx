@@ -1,8 +1,6 @@
-import styles from "./Newsletter.module.css"
+import styles from "./Newsletter.module.css";
 
-type Props = {}
-
-function Newsletter({}: Props) {
+function Newsletter() {
   return (
     <section className={styles.main}>
       <h5 className={styles.title}>Sign up for the newsletter and get 10% off</h5>
@@ -12,7 +10,7 @@ function Newsletter({}: Props) {
         <button className="btn btn--tertiary">Sign Up</button>
       </form>
     </section>
-  )
+  );
 }
 
-export default Newsletter
+export default Newsletter;

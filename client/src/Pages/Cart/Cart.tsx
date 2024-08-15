@@ -1,19 +1,24 @@
-import { useAppContext } from "../../context/appContext";
-
 import styles from "./Cart.module.css";
+
 import CartCard from "../../components/CartCard/CartCard";
+import { useAppContext } from "../../context/appContext";
 
 function Cart() {
   const { cart } = useAppContext();
+
   let deliveryPrice = 0;
   let productsPrice = 0;
   let totalDiscount = 0;
   let totalPrice = 0;
+
   if (cart.length > 0) {
-    productsPrice = cart.map((item) => (item.product.discount ? ((item.product.price - item.product.price * item.product.discount) * item.quantity) : item.product.price * item.quantity)).reduce((prev, next) => prev + next);
-    totalDiscount = cart.map((item) => item.product.discount * item.product.price).reduce((prev, next) => prev + next);
+    productsPrice = cart.map((item) => (item.product.discount ? (item.product.price - item.product.price * item.product.discount) * item.quantity : item.product.price * item.quantity)).reduce((prev, next) => prev + next);
+
+    totalDiscount = cart.map((item) => item.product.discount * item.product.price * item.quantity).reduce((prev, next) => prev + next);
+
     totalPrice = deliveryPrice + productsPrice;
-    productsPrice > 150 ? deliveryPrice = 0 : deliveryPrice = 9.99
+
+    productsPrice > 150 ? (deliveryPrice = 0) : (deliveryPrice = 9.99);
   }
 
   return (

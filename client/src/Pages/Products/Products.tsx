@@ -1,52 +1,20 @@
+import styles from "./Products.module.css";
+
+import { product } from "../../data";
+
 import { Link, useParams } from "react-router-dom";
-import { data } from "../../data";
 import { useEffect, useState } from "react";
 import Card from "../../components/Card/Card";
-
-import styles from "./Products.module.css";
 import { IoIosArrowForward } from "react-icons/io";
+import { filterData } from "../../helpers/dataFunctions";
 
-type Props = {};
-
-function Products({}: Props) {
+function Products() {
   const { gender, collection, type } = useParams();
 
-  const [filteredData, setFilteredData] = useState(
-    data.filter((item) => {
-      const genderMatch = item.gender === gender;
-      const typeMatch = type ? item.type === type : true;
-
-      let collectionMatch = true;
-      if (collection === "sale") {
-        collectionMatch = item.discount > 0;
-      } else if (collection === "all") {
-        collectionMatch = true;
-      } else {
-        collectionMatch = item.category === collection;
-      }
-
-      return genderMatch && typeMatch && collectionMatch;
-    })
-  );
+  const [filteredData, setFilteredData] = useState<product[]>([]);
 
   useEffect(() => {
-    setFilteredData(
-      data.filter((item) => {
-        const genderMatch = item.gender === gender;
-        const typeMatch = type ? item.type === type : true;
-
-        let collectionMatch = true;
-        if (collection === "sale") {
-          collectionMatch = item.discount > 0;
-        } else if (collection === "all") {
-          collectionMatch = true;
-        } else {
-          collectionMatch = item.category === collection;
-        }
-
-        return genderMatch && typeMatch && collectionMatch;
-      })
-    );
+    setFilteredData(filterData(0,gender,type,collection,));
   }, [gender, collection, type]);
 
   return (

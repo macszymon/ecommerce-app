@@ -22,7 +22,7 @@
 }
 
 .img {
-  filter: brightness(.7);
+  filter: brightness(0.7);
   height: 100%;
   object-fit: cover;
   object-position: center;
@@ -33,7 +33,7 @@
 
 @media (max-width: 850px) {
   .hero {
-    height: calc(100vh - 3.1rem);   
+    height: calc(100vh - 3.1rem);
     margin-bottom: 5rem;
   }
 
@@ -43,6 +43,6 @@
 
   .subheader {
     font-size: 1.9rem;
-    letter-spacing: .55rem;
+    letter-spacing: 0.55rem;
   }
 }

@@ -3,9 +3,7 @@ import Hero from "../../components/Hero/Hero";
 import Newsletter from "../../components/Newsletter/Newsletter";
 import ProductsSlider from "../../components/ProductsSlider/ProductsSlider";
 
-type Props = {};
-
-function Home({}: Props) {
+function Home() {
   return (
     <>
       <Hero />

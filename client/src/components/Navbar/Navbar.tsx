@@ -1,19 +1,20 @@
-import { useEffect, useState } from "react";
 import styles from "./Navbar.module.css";
 
+
+import { useEffect, useState } from "react";
 import { LiaHeart, LiaSearchSolid, LiaShoppingBagSolid, LiaTimesSolid } from "react-icons/lia";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAppContext } from "../../context/appContext";
 
 function Navbar() {
-  const [isActive, setIsActive] = useState(false);
-  const [isSearch, setIsSearch] = useState(false);
-  const [input, setInput] = useState("");
-
   const { cart, favorites } = useAppContext();
 
   const location = useLocation();
   const navigate = useNavigate();
+
+  const [isActive, setIsActive] = useState(false);
+  const [isSearch, setIsSearch] = useState(false);
+  const [input, setInput] = useState("");
 
   useEffect(() => {
     const handleResize = () => {
@@ -42,8 +43,8 @@ function Navbar() {
     document.body.classList.remove("block-scroll");
   };
 
-  const handleSearch = (e:  React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     navigate("/search/" + input);
     setInput("");
   };
@@ -175,8 +176,8 @@ function Navbar() {
         </nav>
         <div className={`${styles.search} ${isSearch ? styles.active : ""}`}>
           <LiaSearchSolid />
-          <form className={styles.searchForm} onSubmit={e => handleSearch(e)} action="">
-            <input  className={styles.input} value={input} onChange={(e) => setInput(e.target.value)} type="text" placeholder="Search" />
+          <form className={styles.searchForm} onSubmit={(e) => handleSearch(e)} action="">
+            <input className={styles.input} value={input} onChange={(e) => setInput(e.target.value)} type="text" placeholder="Search" />
           </form>
           <button onClick={() => setIsSearch(false)} className={`${styles.iconBtn} ${styles.searchClose}`}>
             <LiaTimesSolid />

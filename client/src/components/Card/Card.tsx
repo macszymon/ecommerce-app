@@ -1,22 +1,24 @@
-import { LiaHeart } from "react-icons/lia";
 import styles from "./Card.module.css";
+
+import { product } from "../../data";
+
+import { LiaHeart } from "react-icons/lia";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../../context/appContext";
 import { useEffect, useState } from "react";
-import { product } from "../../data";
 
 type Props = {
-  product: product
+  product: product;
 };
 
-function Card({ product}: Props) {
+function Card({ product }: Props) {
   const { favorites, addToFavorites, deleteFromFavorites } = useAppContext();
 
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    setIsFavorite(favorites.includes(product))
-  }, [])
+    setIsFavorite(favorites.includes(product));
+  }, []);
 
   function handleFavorite() {
     if (product) {

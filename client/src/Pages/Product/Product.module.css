@@ -58,49 +58,49 @@
 }
 
 .details {
-    border-top: 1px solid var(--color-neutral-500);
-    grid-column: 1;
+  border-top: 1px solid var(--color-neutral-500);
+  grid-column: 1;
 }
 
 .detail {
-    border-bottom: 1px solid var(--color-neutral-500);
-    display: flex;
-    flex-direction: column;
+  border-bottom: 1px solid var(--color-neutral-500);
+  display: flex;
+  flex-direction: column;
 }
 
 .detail span {
-  font-size: .9rem;
-    max-height: 0;
-    transition: .3s ease-in-out;
-    overflow: hidden;
+  font-size: 0.9rem;
+  max-height: 0;
+  transition: 0.3s ease-in-out;
+  overflow: hidden;
 }
 
 .detail .active {
-    max-height: 20rem;
-    padding-bottom: 1rem;
+  max-height: 20rem;
+  padding-bottom: 1rem;
 }
 
 .detail svg {
-    color: var(--color-neutral-600);
-    font-size: 1.25rem;
+  color: var(--color-neutral-600);
+  font-size: 1.25rem;
 }
 
 .detail strong {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 1rem;
+  display: block;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 .detail button {
-    align-items: center;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    font-weight: 600;
-    justify-content: space-between;
-    padding-block: 1rem;
-    text-transform: uppercase;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  font-weight: 600;
+  justify-content: space-between;
+  padding-block: 1rem;
+  text-transform: uppercase;
 }
 
 .sale {
@@ -221,37 +221,37 @@
   width: 3.2rem;
 }
 
-.btnFavoritesActive{
+.btnFavoritesActive {
   background-color: var(--color-primary);
   border: 1px solid var(--color-primary);
   color: var(--color-neutral-200);
 }
 
 .policies {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .policy {
-    align-items: center;
-    display: flex;
-    gap: .5rem;
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .policy svg {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
 .policy span {
-    display: flex;
-    font-size: .8rem;
-    flex-direction: column;
+  display: flex;
+  font-size: 0.8rem;
+  flex-direction: column;
 }
 
 .policy strong {
-    font-size: .9rem;
-    font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .cards {

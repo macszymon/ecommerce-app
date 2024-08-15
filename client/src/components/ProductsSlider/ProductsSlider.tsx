@@ -1,6 +1,8 @@
 import styles from "./ProductSlider.module.css";
-import { Link } from "react-router-dom";
+
 import Slider from "../Slider/Slider";
+
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 type Props = {
@@ -18,7 +20,9 @@ function ProductsSlider({ title, image, type }: Props) {
         <img src={image} alt="" className={styles.image} />
         <div className={styles.headerBox}>
           <h3 className={styles.title}>{title}</h3>
-          <Link to={`/${active}/${type}`} className="btn btn--tertiary">See More</Link>
+          <Link to={`/${active}/${type}`} className="btn btn--tertiary">
+            See More
+          </Link>
         </div>
       </div>
       <div className={styles.categories}>
@@ -29,7 +33,7 @@ function ProductsSlider({ title, image, type }: Props) {
           Women
         </button>
       </div>
-      <Slider gender={active} collection={type}/>
+      <Slider gender={active} collection={type} />
     </section>
   );
 }

@@ -1,9 +1,12 @@
-import { useEffect, useRef, useState } from "react";
 import styles from "./Slider.module.css";
-import { Link } from "react-router-dom";
-import { data } from "../../data";
+
+import { product } from "../../data";
+
 import Card from "../Card/Card";
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
+import { filterData } from "../../helpers/dataFunctions";
 
 type Props = {
   gender: string;
@@ -13,50 +16,12 @@ type Props = {
 };
 
 function Slider({ id, gender, type, collection }: Props) {
+  const [filteredData, setFilteredData] = useState<product[]>([]);
+
   const slider = useRef<HTMLDivElement>(null);
 
-  const [filteredData, setFilteredData] = useState(
-    data
-      .filter((item) => {
-        const genderMatch = item.gender === gender;
-        const typeMatch = type ? item.type === type : true;
-        const idMatch = item.id === id ? false : true;
-
-        let collectionMatch = true;
-        if (collection === "sale") {
-          collectionMatch = item.discount > 0;
-        } else if (collection === "all") {
-          collectionMatch = true;
-        } else {
-          collectionMatch = item.category === collection;
-        }
-
-        return genderMatch && typeMatch && collectionMatch && idMatch;
-      })
-      .slice(0, 6)
-  );
-
   useEffect(() => {
-    setFilteredData(
-      data
-        .filter((item) => {
-          const genderMatch = item.gender === gender;
-          const typeMatch = type ? item.type === type : true;
-          const idMatch = item.id === id ? false : true;
-
-          let collectionMatch = true;
-          if (collection === "sale") {
-            collectionMatch = item.discount > 0;
-          } else if (collection === "all") {
-            collectionMatch = true;
-          } else {
-            collectionMatch = item.category === collection;
-          }
-
-          return genderMatch && typeMatch && collectionMatch && idMatch;
-        })
-        .slice(0, 6)
-    );
+    setFilteredData(filterData(id, gender, type, collection, 6));
 
     if (!slider.current) return;
     slider.current.scrollTo(0, 0);
@@ -64,12 +29,12 @@ function Slider({ id, gender, type, collection }: Props) {
 
   const nextSlide = () => {
     if (!slider.current) return;
-    slider.current.scrollTo(slider.current.scrollLeft + 17 * 16, 0);
+    slider.current.scrollTo(slider.current.scrollLeft + 18 * 16, 0);
   };
 
   const prevSlide = () => {
     if (!slider.current) return;
-    slider.current.scrollTo(slider.current.scrollLeft - 17 * 16, 0);
+    slider.current.scrollTo(slider.current.scrollLeft - 18 * 16, 0);
   };
 
   return (

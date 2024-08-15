@@ -1,10 +1,9 @@
-import { FaFacebookSquare, FaInstagram, FaPinterest, FaTiktok } from "react-icons/fa";
 import styles from "./Footer.module.css";
+
+import { FaFacebookSquare, FaInstagram, FaPinterest, FaTiktok } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-type Props = {};
-
-function Footer({}: Props) {
+function Footer() {
   return (
     <footer className={styles.main}>
       <div className={styles.wrapper}>
@@ -41,7 +40,12 @@ function Footer({}: Props) {
           <FaPinterest />
         </a>
       </div>
-      <p className={styles.attribution}>All images from <a href="https://www.freepik.com/" target="_blank">freepik.com</a></p>
+      <p className={styles.attribution}>
+        All images from{" "}
+        <a href="https://www.freepik.com/" target="_blank">
+          freepik.com
+        </a>
+      </p>
       <p className={styles.attribution}>Made by Szymon Makiewicz</p>
     </footer>
   );

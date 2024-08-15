@@ -7,15 +7,15 @@
 }
 
 .title {
-    text-transform: uppercase;
-    font-weight: 600;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .noResults {
-    font-size: 3rem;
-    text-align: center;
-    text-transform: uppercase;
-    margin-block: 10rem;
+  font-size: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  margin-block: 10rem;
 }
 
 .cards {

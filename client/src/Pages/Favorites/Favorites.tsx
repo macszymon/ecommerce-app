@@ -1,11 +1,9 @@
+import styles from "./Favorites.module.css";
+
 import Card from "../../components/Card/Card";
 import { useAppContext } from "../../context/appContext";
 
-import styles from "./Favorites.module.css";
-
-type Props = {};
-
-function Favorites({}: Props) {
+function Favorites() {
   const { favorites } = useAppContext();
 
   return (

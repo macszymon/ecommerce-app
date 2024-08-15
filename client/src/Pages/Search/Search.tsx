@@ -1,16 +1,16 @@
+import styles from "./Search.module.css";
+
+import { product } from "../../data";
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { searchProducts } from "../../helpers/dataFunctions";
-import { product } from "../../data";
 import Card from "../../components/Card/Card";
 
-import styles from "./Search.module.css";
-
-type Props = {};
-
-function Search({}: Props) {
-  const [results, setResults] = useState<product[]>([]);
+function Search() {
   const { input = "" } = useParams();
+
+  const [results, setResults] = useState<product[]>([]);
 
   useEffect(() => {
     setResults(searchProducts(input));

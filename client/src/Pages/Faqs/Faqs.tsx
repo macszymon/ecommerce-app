@@ -1,16 +1,15 @@
-import { faqs } from "../../data";
-import Faq from "./Faq";
 import styles from "./Faqs.module.css";
 
-type Props = {};
+import { faqs } from "../../data";
+import Faq from "./Faq";
 
-function Faqs({}: Props) {
+function Faqs() {
   return (
     <section className="container">
       <h2 className={styles.title}>FAQ - Frequently Asked Questions</h2>
       <ul className={styles.faqs}>
-        {faqs.map((faq,index) => {
-          return <Faq index={index} question={faq.question} answer={faq.answer} />
+        {faqs.map((faq, index) => {
+          return <Faq key={index} index={index} question={faq.question} answer={faq.answer} />;
         })}
       </ul>
     </section>
