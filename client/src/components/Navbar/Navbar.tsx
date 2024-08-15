@@ -8,9 +8,9 @@ import { useAppContext } from "../../context/appContext";
 function Navbar() {
   const [isActive, setIsActive] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
-  const [input, setInput] = useState("")
+  const [input, setInput] = useState("");
 
-  const {cart, favorites} = useAppContext()
+  const { cart, favorites } = useAppContext();
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ function Navbar() {
     window.addEventListener("resize", handleResize);
     setIsActive(false);
     setIsSearch(false);
-    document.body.classList.remove("block-scroll")
+    document.body.classList.remove("block-scroll");
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -42,11 +42,11 @@ function Navbar() {
     document.body.classList.remove("block-scroll");
   };
 
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSearch = (e:  React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    navigate("/search/" + input)
+    navigate("/search/" + input);
     setInput("");
-  }
+  };
 
   return (
     <header className={styles.header}>
@@ -173,26 +173,28 @@ function Navbar() {
             </li>
           </ul>
         </nav>
-        <form onSubmit={e => handleSearch(e)} className={`${styles.search} ${isSearch ? styles.active : ""}`}>
+        <div className={`${styles.search} ${isSearch ? styles.active : ""}`}>
           <LiaSearchSolid />
-          <input className={styles.input} value={input} onChange={e => setInput(e.target.value)} type="text" placeholder="Search" />
+          <form className={styles.searchForm} onSubmit={e => handleSearch(e)} action="">
+            <input  className={styles.input} value={input} onChange={(e) => setInput(e.target.value)} type="text" placeholder="Search" />
+          </form>
           <button onClick={() => setIsSearch(false)} className={`${styles.iconBtn} ${styles.searchClose}`}>
             <LiaTimesSolid />
           </button>
-        </form>
+        </div>
         <div className={styles.icons}>
           <button className={`${styles.iconBtn} ${styles.searchIcon}`} onClick={handleSearchClick}>
             <LiaSearchSolid />
           </button>
-          <Link to="favorites" className={styles.iconBtn}>
+          <Link to="/favorites" className={styles.iconBtn}>
             <LiaHeart />
             <span className={styles.iconName}>Favorites</span>
-            {favorites && (favorites?.length > 0 && <span className={styles.quantity}>{favorites.length}</span>)}
+            {favorites && favorites?.length > 0 && <span className={styles.quantity}>{favorites.length}</span>}
           </Link>
-          <Link to="cart" className={styles.iconBtn}>
+          <Link to="/cart" className={styles.iconBtn}>
             <LiaShoppingBagSolid />
             <span className={styles.iconName}>Cart</span>
-            {cart && (cart.length > 0 && <span className={styles.quantity}>{cart.length}</span>)}
+            {cart && cart.length > 0 && <span className={styles.quantity}>{cart.length}</span>}
           </Link>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { getProduct } from "../../helpers/dataFunctions";
 
 import styles from "./Product.module.css";
 import { IoIosArrowDown, IoIosArrowForward, IoIosArrowUp } from "react-icons/io";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LiaHeart, LiaShippingFastSolid, LiaShoppingBagSolid, LiaUndoSolid } from "react-icons/lia";
 import Slider from "../../components/Slider/Slider";
 import { product } from "../../data";
@@ -12,14 +12,18 @@ import { useAppContext } from "../../context/appContext";
 type Props = {};
 
 function Product({}: Props) {
-  const { id } = useParams();
-  const product: product | undefined = id ? getProduct(parseInt(id)) : undefined;
+  const { id = "1" } = useParams();
+  const { favorites, addToCart, addToFavorites, deleteFromFavorites } = useAppContext();
+  const product: product | undefined = getProduct(parseInt(id));
 
   const [selectedSize, setSelectedSize] = useState(product?.sizes ? product.sizes[0] : "");
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
   const [isMaterialOpen, setIsMaterialOpen] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
 
-  const { addToCart } = useAppContext();
+  useEffect(() => {
+    product && setIsFavorite(favorites.includes(product))
+  }, [id])
 
   function handleDescriptionClick() {
     setIsDescriptionOpen((prev) => !prev);
@@ -33,7 +37,19 @@ function Product({}: Props) {
 
   function handleAddToCart() {
     if (product) {
-      addToCart(product, 1, selectedSize);
+      addToCart({product: product, size: selectedSize, quantity: 1});
+    }
+  }
+
+  function handleFavorite() {
+    if (product) {
+      if (isFavorite) {
+        deleteFromFavorites(product);
+        setIsFavorite(false);
+      } else {
+        setIsFavorite(true);
+        addToFavorites(product);
+      }
     }
   }
 
@@ -93,7 +109,7 @@ function Product({}: Props) {
                 <LiaShoppingBagSolid />
                 Add to cart
               </button>
-              <button className={styles.btnFavorites}>
+              <button onClick={() => handleFavorite()} className={`${styles.btnFavorites} ${isFavorite ? styles.btnFavoritesActive : ""}`}>
                 <LiaHeart />
               </button>
             </div>

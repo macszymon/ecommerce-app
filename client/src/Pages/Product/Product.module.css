@@ -221,9 +221,9 @@
   width: 3.2rem;
 }
 
-.btnFavorites:hover {
-  border: 1px solid var(--color-primary);
+.btnFavoritesActive{
   background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
   color: var(--color-neutral-200);
 }
 

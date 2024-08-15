@@ -76,7 +76,7 @@ function Slider({ id, gender, type, collection }: Props) {
     <div className={styles.main}>
       <div className={`${styles.slider}`} ref={slider}>
         {filteredData.map((product) => {
-          return <Card key={product.id} id={product.id} name={product.name} price={product.price} discount={product.discount} imageUrl={product.imageUrl} />;
+          return <Card key={product.id} product={product} />;
         })}
         <Link to={`/${gender}/${collection}`} className={styles.cardMore}>
           See More

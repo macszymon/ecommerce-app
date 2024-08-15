@@ -1,3 +1,10 @@
+.noResults {
+  font-size: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  margin-block: 10rem;
+}
+
 .header {
   align-items: center;
   display: flex;
@@ -7,15 +14,8 @@
 }
 
 .title {
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.noResults {
-    font-size: 3rem;
-    text-align: center;
-    text-transform: uppercase;
-    margin-block: 10rem;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 .cards {
@@ -32,13 +32,15 @@
   }
 }
 
-@media (max-width: 800px) {
-  .cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
+@media (max-width: 850px) {
   .noResults {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 750px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -47,3 +49,4 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+

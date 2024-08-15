@@ -10,6 +10,7 @@ import Search from "../Pages/Search/Search";
 import Error from "../Pages/Error/Error";
 import { AppProvider } from "../context/appContext";
 import Cart from "../Pages/Cart/Cart";
+import Favorites from "../Pages/Favorites/Favorites";
 
 const Layout = () => {
   return (
@@ -26,40 +27,43 @@ const Layout = () => {
   );
 };
 
-export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    errorElement: <Error />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/favorites",
-        element: <Home />,
-      },
-      {
-        path: "/cart",
-        element: <Cart />,
-      },
-      {
-        path: "/search/:input",
-        element: <Search />,
-      },
-      {
-        path: "/faq",
-        element: <Faq />,
-      },
-      {
-        path: "/:gender/:collection/:type?",
-        element: <Products />,
-      },
-      {
-        path: "/product/:id",
-        element: <Product />,
-      },
-    ],
-  },
-]);
+export const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Layout />,
+      errorElement: <Error />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "/favorites",
+          element: <Favorites />,
+        },
+        {
+          path: "/cart",
+          element: <Cart />,
+        },
+        {
+          path: "/search/:input",
+          element: <Search />,
+        },
+        {
+          path: "/faq",
+          element: <Faq />,
+        },
+        {
+          path: "/:gender/:collection/:type?",
+          element: <Products />,
+        },
+        {
+          path: "/product/:id",
+          element: <Product />,
+        },
+      ],
+    },
+  ],
+  { basename: "/ecommerce-app/" }
+);

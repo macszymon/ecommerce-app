@@ -67,6 +67,12 @@
   transition: .3s ease-in-out;
 }
 
+.favoritesBtnActive{
+  background-color: var(--color-primary);
+  color: var(--color-neutral-200);
+  opacity: 1;
+}
+
 .favoritesBtn:hover {
   opacity: 1;
 }

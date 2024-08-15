@@ -8,10 +8,11 @@ type cartItem = {
 };
 
 type AppContextType = {
-  cart: cartItem[] | null;
-  favorites: product[] | null;
-  addToCart: (product: product, quantity: number, size?: string) => void;
-  deleteFromCart: (product: cartItem) => void;
+  cart: cartItem[];
+  favorites: product[];
+  addToCart: (cartItem: cartItem) => void;
+  deleteFromCart: (cartItem: cartItem) => void;
+  updateItemInCart: (cartItem: cartItem) => void;
   addToFavorites: (product: product) => void;
   deleteFromFavorites: (product: product) => void;
 };
@@ -26,8 +27,8 @@ export const AppProvider = ({ children }: Props) => {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    const cart = localStorage.getItem("cart");
-    const favorites = localStorage.getItem("favorites");
+    const cart = localStorage.getItem("cartECommerceApp");
+    const favorites = localStorage.getItem("favoritesECommerceApp");
     if (cart) {
       setCart(JSON.parse(cart));
     }
@@ -37,28 +38,30 @@ export const AppProvider = ({ children }: Props) => {
     setIsReady(true);
   }, []);
 
-  const addToCart = async (product: product, quantity: number, size?: string) => {
-    const isInCart = cart.find((item) => item.product.id === product.id && item.size === size);
-
-    const cartProduct: cartItem = {
-      product,
-      size,
-      quantity,
-    };
+  const addToCart = async (cartItem: cartItem) => {
+    const isInCart = cart.find((item) => item.product.id === cartItem.product.id && item.size === cartItem.size);
 
     if (!isInCart) {
-      setCart((prev) => [...prev, cartProduct]);
-      localStorage.setItem("cart", JSON.stringify([...cart, cartProduct]));
+      setCart((prev) => [...prev, cartItem]);
+      localStorage.setItem("cartECommerceApp", JSON.stringify([...cart, cartItem]));
     }
   };
 
-  const deleteFromCart = (product: cartItem) => {
+  const updateItemInCart = async (cartItem: cartItem) => {
+    const index = cart.findIndex((item) => item.product.id === cartItem.product.id);
+    let updateCart = [...cart];
+    updateCart[index] = cartItem;
+    setCart(updateCart);
+    localStorage.setItem("cartECommerceApp", JSON.stringify(updateCart));
+  };
+
+  const deleteFromCart = (cartItem: cartItem) => {
     const cartFilter = cart.filter((item) => {
-      return item.product.id !== product.product.id ? true : product.product.sizes ? item.size !== product.size : false;
+      return item.product.id !== cartItem.product.id ? true : cartItem.product.sizes ? item.size !== cartItem.size : false;
     });
     setCart(cartFilter);
 
-    localStorage.setItem("cart", JSON.stringify(cartFilter));
+    localStorage.setItem("cartECommerceApp", JSON.stringify(cartFilter));
   };
 
   const addToFavorites = async (product: product) => {
@@ -66,7 +69,7 @@ export const AppProvider = ({ children }: Props) => {
 
     if (!isInFavorites) {
       setFavorites((prev) => [...prev, product]);
-      localStorage.setItem("favorites", JSON.stringify([...favorites, product]));
+      localStorage.setItem("favoritesECommerceApp", JSON.stringify([...favorites, product]));
     }
   };
 
@@ -76,10 +79,10 @@ export const AppProvider = ({ children }: Props) => {
     });
     setFavorites(favoritesFilter);
 
-    localStorage.setItem("favorites", JSON.stringify(favoritesFilter));
+    localStorage.setItem("favoritesECommerceApp", JSON.stringify(favoritesFilter));
   };
 
-  return <AppContext.Provider value={{ cart, favorites, addToCart, deleteFromCart, addToFavorites, deleteFromFavorites }}>{isReady ? children : null}</AppContext.Provider>;
+  return <AppContext.Provider value={{ cart, favorites, addToCart, deleteFromCart, addToFavorites, deleteFromFavorites, updateItemInCart }}>{isReady ? children : null}</AppContext.Provider>;
 };
 
 export const useAppContext = () => useContext(AppContext);

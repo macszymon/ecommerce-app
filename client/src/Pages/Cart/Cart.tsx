@@ -3,14 +3,22 @@ import { useAppContext } from "../../context/appContext";
 import styles from "./Cart.module.css";
 import CartCard from "../../components/CartCard/CartCard";
 
-type Props = {};
-
-function Cart({}: Props) {
+function Cart() {
   const { cart } = useAppContext();
+  let deliveryPrice = 0;
+  let productsPrice = 0;
+  let totalDiscount = 0;
+  let totalPrice = 0;
+  if (cart.length > 0) {
+    productsPrice = cart.map((item) => (item.product.discount ? ((item.product.price - item.product.price * item.product.discount) * item.quantity) : item.product.price * item.quantity)).reduce((prev, next) => prev + next);
+    totalDiscount = cart.map((item) => item.product.discount * item.product.price).reduce((prev, next) => prev + next);
+    totalPrice = deliveryPrice + productsPrice;
+    productsPrice > 150 ? deliveryPrice = 0 : deliveryPrice = 9.99
+  }
 
   return (
     <section className="container">
-      {cart?.length ? (
+      {cart.length ? (
         <div className={styles.wrapper}>
           <div>
             <header className={styles.header}>
@@ -20,17 +28,23 @@ function Cart({}: Props) {
               </span>
             </header>
             <div className={styles.cards}>
-              {cart.map((item) => {
-                return <CartCard key={item.product.id} product={item.product} size={item.size} quantity={item.quantity} />;
+              {cart.map((item, index) => {
+                return <CartCard key={index} product={item.product} size={item.size} quantity={item.quantity} />;
               })}
             </div>
           </div>
           <div className={styles.details}>
             <ul className={styles.list}>
-              <li className={styles.saved}>You save total 40.00 PLN </li>
-              <li className={styles.item}>Products price <span>100.00 PLN</span></li>
-              <li className={styles.item}>Delivery <span>9.99 PLN</span></li>
-              <li className={styles.total}>Total <span>409.99 PLN</span></li>
+              <li className={styles.saved}>You save total {totalDiscount.toFixed(2)} PLN</li>
+              <li className={styles.item}>
+                Products price <span>{productsPrice.toFixed(2)} PLN</span>
+              </li>
+              <li className={styles.item}>
+                Delivery <span>{deliveryPrice.toFixed(2)} PLN</span>
+              </li>
+              <li className={styles.total}>
+                Total <span>{totalPrice.toFixed(2)} PLN</span>
+              </li>
             </ul>
             <button className={`btn btn--tertiary ${styles.btn}`}>Go To Checkout</button>
             <div className={styles.form}>

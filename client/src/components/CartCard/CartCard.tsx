@@ -3,7 +3,7 @@ import { product } from "../../data";
 import styles from "./CartCard.module.css";
 import { CiCircleRemove } from "react-icons/ci";
 import { useAppContext } from "../../context/appContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
   product: product;
@@ -12,7 +12,13 @@ type Props = {
 };
 
 function CartCard({ product, size, quantity }: Props) {
-  const { cart, deleteFromCart } = useAppContext();
+  const { cart, deleteFromCart, updateItemInCart } = useAppContext();
+  const [input, setInput] = useState(quantity);
+
+  const handleQuantityChange = (value: string) => {
+    setInput(parseInt(value));
+    updateItemInCart({ product: product, size: size, quantity: parseInt(value) });
+  };
 
   useEffect(() => {}, [cart]);
 
@@ -26,16 +32,14 @@ function CartCard({ product, size, quantity }: Props) {
           <Link to={`/product/${product.id}`}>
             <h2 className={styles.title}>{product.name}</h2>
           </Link>
-          <button onClick={() => deleteFromCart({product, size, quantity})} className={styles.remove}>
+          <button onClick={() => deleteFromCart({ product: product, size: size, quantity: quantity })} className={styles.remove}>
             <CiCircleRemove />
           </button>
         </header>
-        <div className={styles.details}>
-          {size && <h3 className={styles.subtitle}>Size: {size}</h3>}
-          <h3 className={styles.subtitle}>Quantity: {quantity}</h3>
-        </div>
+        {size && <h3 className={styles.subtitle}>Size: {size}</h3>}
+        <input className={styles.input} type="number" min={1} max={10} onChange={(e) => handleQuantityChange(e.target.value)} value={input} />
         <div className={styles.prices}>
-          <span className={`${styles.price} ${product.discount ? styles.priceDiscount : ""}`}>{product.discount ? ((product.price - (product.price * product.discount)) * quantity).toFixed(2) : product.price * quantity} PLN</span>
+          <span className={`${styles.price} ${product.discount ? styles.priceDiscount : ""}`}>{product.discount ? ((product.price - product.price * product.discount) * quantity).toFixed(2) : (product.price * quantity).toFixed(2)} PLN</span>
           {product.discount > 0 && <span className={styles.priceOld}>{product.price * quantity} PLN</span>}
         </div>
       </div>

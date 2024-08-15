@@ -189,7 +189,7 @@ function Products({}: Props) {
           </header>
           <div className={styles.cards}>
             {filteredData.map((product) => {
-              return <Card key={product.id} id={product.id} name={product.name} price={product.price} discount={product.discount} imageUrl={product.imageUrl} />;
+              return <Card key={product.id} product={product} />;
             })}
           </div>
         </div>
