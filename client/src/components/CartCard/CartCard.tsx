@@ -40,7 +40,18 @@ function CartCard({ product, size, quantity }: Props) {
           </button>
         </header>
         {size && <h3 className={styles.subtitle}>Size: {size}</h3>}
-        <input className={styles.input} type="number" min={1} max={10} onChange={(e) => handleQuantityChange(e.target.value)} value={input} />
+        <select onChange={(e) => handleQuantityChange(e.target.value)} value={input} className={styles.select}>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
         <div className={styles.prices}>
           <span className={`${styles.price} ${product.discount ? styles.priceDiscount : ""}`}>{product.discount ? ((product.price - product.price * product.discount) * quantity).toFixed(2) : (product.price * quantity).toFixed(2)} PLN</span>
           {product.discount > 0 && <span className={styles.priceOld}>{product.price * quantity} PLN</span>}
