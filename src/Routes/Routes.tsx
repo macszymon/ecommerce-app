@@ -1,4 +1,4 @@
-import { createHashRouter, Outlet } from "react-router-dom";
+import { createBrowserRouter, Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import Home from "../Pages/Home/Home";
@@ -27,7 +27,7 @@ const Layout = () => {
   );
 };
 
-export const router = createHashRouter(
+export const router = createBrowserRouter(
   [
     {
       path: "/",
@@ -64,5 +64,6 @@ export const router = createHashRouter(
         },
       ],
     },
-  ]
+  ],
+  { basename: "/ecommerce-app/" }
 );
