@@ -64,6 +64,5 @@ export const router = createHashRouter(
         },
       ],
     },
-  ],
-  { basename: "/ecommerce-app/" }
+  ]
 );
