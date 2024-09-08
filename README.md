@@ -1,7 +1,6 @@
-# E-Commerce App
+# E-Commerce Website
+Developed a frontend website that mimics the functionality of a typical online clothing store. This application was built using React. Users can browse through various clothing items, search for specific products, add items to their shopping cart or favorites, and have these items saved in their local storage to maintain the state across sessions.
 
-## General info
-This project is a simple frontend ecommerce website. I made it to pracise React and learn how to implement shopping cart and favorites.
 ### Features
 * Adding items to cart,
 * Adding items to favorites,
@@ -9,7 +8,7 @@ This project is a simple frontend ecommerce website. I made it to pracise React 
 * Browsing items by categories,
 * Fully mobile responsive.
 
-## Website url:
+## Live preview:
 [https://macszymon.github.io/ecommerce-app/](https://macszymon.github.io/ecommerce-app/)
 
 ## Technologies
